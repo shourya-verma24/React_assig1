@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task_3</title>
+</head>
+<body>
+    <div id="root">
+
+    </div>
+</body>
+<script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+    function alerting()
+    {
+        alert("Hello")
+    }
+    function App()
+    {
+
+        return(            
+            <>
+                <p>React is a Javascript Library.</p>
+                <div className="main" style={{color:'red',fontSize:'32px',textAlign:"center",border:'2px solid blue'}}>
+                    <p>Click the Below button to alert Hello</p>
+                    <button onClick={alerting}>Alert Hello</button>
+                </div>
+                
+            </>
+        )
+    }
+
+    let root= ReactDOM.createRoot(document.getElementById("root"))
+    root.render(<App/>) 
+</script>
+
+</html>
+<!-- i got to know that styling will need two breackets 
+ and keywords we will have to write in camel casing -->
