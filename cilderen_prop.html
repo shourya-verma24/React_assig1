@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic List Rendering</title>
+</head>
+<style>
+    .container{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 2px;
+        padding: auto;
+        margin: auto;
+        border: 2px solid black;
+    }
+    .container img{
+        width: 80%;
+        margin: auto;
+    }
+</style>
+<body>
+  <div id="root"></div>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    function Gallery({children}){
+        return(
+            <div className = "container">{children}</div>
+        )
+    }
+
+    function App(){
+        return(
+            <>
+                <p>hello i am working</p>
+                <Gallery>
+                    <img src="https://th.bing.com/th/id/OIP.tOrhMlusRmkG-BaKSJcs0gHaF-?rs=1&pid=ImgDetMain" alt=""/>
+                    <img src="https://th.bing.com/th/id/OIP.tOrhMlusRmkG-BaKSJcs0gHaF-?rs=1&pid=ImgDetMain" alt=""/>
+                    <img src="https://th.bing.com/th/id/OIP.tOrhMlusRmkG-BaKSJcs0gHaF-?rs=1&pid=ImgDetMain" alt=""/>
+                    <img src="https://th.bing.com/th/id/OIP.tOrhMlusRmkG-BaKSJcs0gHaF-?rs=1&pid=ImgDetMain" alt=""/>
+                    <img src="https://th.bing.com/th/id/OIP.tOrhMlusRmkG-BaKSJcs0gHaF-?rs=1&pid=ImgDetMain" alt=""/>
+                    <img src="https://th.bing.com/th/id/OIP.tOrhMlusRmkG-BaKSJcs0gHaF-?rs=1&pid=ImgDetMain" alt=""/>
+                    <img src="https://th.bing.com/th/id/OIP.tOrhMlusRmkG-BaKSJcs0gHaF-?rs=1&pid=ImgDetMain" alt=""/>
+                    <img src="https://th.bing.com/th/id/OIP.tOrhMlusRmkG-BaKSJcs0gHaF-?rs=1&pid=ImgDetMain" alt=""/>
+                    <img src="https://th.bing.com/th/id/OIP.tOrhMlusRmkG-BaKSJcs0gHaF-?rs=1&pid=ImgDetMain" alt=""/>
+                    <img src="https://th.bing.com/th/id/OIP.tOrhMlusRmkG-BaKSJcs0gHaF-?rs=1&pid=ImgDetMain" alt=""/>
+                </Gallery>   
+            </>
+    )
+    }
+    // Your ItemList component code will go here
+    let root = ReactDOM.createRoot(document.getElementById("root"))
+    root.render(<App/>)
+  </script>
+</body>
+</html>
