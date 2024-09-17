@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Components in React</title>
+</head>
+<style>
+  .container{
+    text-align: center;
+  }
+  .Heading{
+    margin-top: 30px;
+    font-weight: bolder;
+    font-size: 1.9rem;
+  }
+  .Heading_green_portion{
+    color: rgb(13, 255, 0);
+  }
+  .border{
+    /* border: 2px solid black; */
+    margin: 2px;
+    display: flex;
+    margin-top: 60px;
+  }
+  .check{
+    /* border: 2px solid red; */
+    margin: 2px
+  }
+  .Sr_no{
+    /* border: 1px solid yellowgreen; */
+    width: 30px;
+    height: 26px;
+    border-radius: 4px;
+    background-color: rgba(146, 187, 64, 0.907);
+    margin:auto;
+    color: green;
+    text-align: center;
+    margin-top: 3px;
+    font-size: larger;
+  }
+  .paragraph{
+    color: rgb(116, 114, 114);
+  }
+
+</style>
+<body>
+  <div id="root"></div>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    // Write your code here
+    let sr_array = [1,2,3]
+    let Headings_array = ["Environmental Benifits","Technological Advances", "Growing Adoption"]
+    let Para_array=["Electric vehicles (EVs) produce no tailpipe emissions, making them a cleaner alternative to traditional gasoline cars. This helps reduce air pollution and greenhouse gas emissions, contributing to a healthier environment.",
+        "Recent advancements in battery technology have significantly increased the driving range of EVs. Faster charging times and improved efficiency are making electric vehicles more practical and accessible for everyday use.",
+        "As more consumers and manufacturers embrace electric vehicles, the market is expanding rapidly. Government incentives and falling battery costs are driving widespread adoption, making EVs an increasingly viable option for many drivers."]
+    function Content({sr_no,heading,paragraph}){
+        return(        
+        <>
+        <div className="check">
+          <div className = "Sr_no">{sr_no}</div>
+          <h2 className = "heading">{heading}</h2>
+          <p className = "paragraph">{paragraph}</p>
+         </div>
+
+        </>)
+
+    }
+    function App(){
+        return( 
+        <>
+        <div className="container">
+         
+            <div className="Heading">Getting Stated With <span className="Heading_green_portion">Three Easy Steps</span></div>
+            <div className= "border">
+        
+              {sr_array.map((value,index)=>(
+                  <Content 
+                key = {index}
+                sr_no = {value}
+                heading = {Headings_array[index]}
+                paragraph = {Para_array[index]}
+                />       
+                
+                
+            ))
+
+            }
+            </div>
+        </div>
+        </>)
+    }
+
+    let root = ReactDOM.createRoot(document.getElementById("root"))
+    root.render(<App/>)
+  </script>
+</body>
+</html>
