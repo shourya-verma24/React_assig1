@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template</title>
+  </head>
+  <style>
+    .card_container{
+        border: 2px solid palevioletred;
+        margin: 10px;
+        text-align: center;
+        border-radius: 19px;
+        background-color: rgb(213, 201, 203);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.5s;
+    }
+    .card_container:hover {
+    transform: scale(1.02); /* Scale up slightly on hover */
+    }
+    .inner_Boarder{
+        border: 1.9px solid pink;
+        margin: 2px;
+        border-radius: 19px;
+        background-color: rgb(255, 255, 255);
+    }
+    .heading{
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: 2rem;
+    }
+    .heading_name{
+        color: plum;
+        font-size: 2.1rem;
+        text-decoration-line: underline;
+        background-color: rgb(246, 240, 240);
+    }
+    .inner_Boarder p{
+        color: rgb(52, 26, 26);
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+  </style>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    // Your  code will go here
+    function Greeting_Card({greeting,name}){
+        return(
+        <>
+        <div className="card_container">
+            <div className="inner_Boarder">
+                <h2 className="heading">{greeting} <span className="heading_name">{name}</span></h2>
+                <br/>
+                <p>Wishing you All the very best {name}</p>
+            </div>
+        </div>
+        </>)
+    }
+    function App(){
+        const greeting_object = [
+    {
+        greeting: "Happy Birthday",
+        name: "Jaspreet",
+    },
+    {
+        greeting: "Congratulations",
+        name: "Alex",
+    },
+    {
+        greeting: "Happy Anniversary",
+        name: "Sarah",
+    },
+    {
+        greeting: "Get Well Soon",
+        name: "Tom",
+    },
+    {
+        greeting: "Happy New Year",
+        name: "Priya",
+    },
+    ];
+
+        return <>{
+            greeting_object.map((value,index)=>(
+                <Greeting_Card
+                key = {index}
+                greeting= {greeting_object[index].greeting}
+                name = {greeting_object[index].name}
+                />
+            ))
+
+        }
+
+        </>
+    }
+
+
+    let root = ReactDOM.createRoot(document.getElementById("root"))
+    root.render(<App/>)
+  </script>
+</html>
